@@ -12,7 +12,7 @@ const CONFIG = {
   },
   projects: [
     {
-      name: `Memora`,
+      name: "Memora",
       href: "https://github.com/inxnxng/memora",
     },
   ],
@@ -20,7 +20,7 @@ const CONFIG = {
   blog: {
     title: "inxnxng-log",
     description: "step by step",
-    scheme: "system", // 'light' | 'dark' | 'system'
+    scheme: "light", // 'light' | 'dark' | 'system'
   },
 
   // CONFIG configration (required)
