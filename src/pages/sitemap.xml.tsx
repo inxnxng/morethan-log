@@ -1,7 +1,7 @@
-import { getPosts } from "../apis/notion-client/getPosts"
-import { CONFIG } from "site.config"
-import { getServerSideSitemap, ISitemapField } from "next-sitemap"
 import { GetServerSideProps } from "next"
+import { getServerSideSitemap, ISitemapField } from "next-sitemap"
+import { CONFIG } from "site.config"
+import { getPosts } from "../apis/notion-client/getPosts"
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const posts = await getPosts()

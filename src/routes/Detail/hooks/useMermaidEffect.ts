@@ -1,8 +1,7 @@
-import { useQuery, useQueryClient } from "@tanstack/react-query"
+import { useQuery } from "@tanstack/react-query"
 import mermaid from "mermaid"
 import { useEffect, useState } from "react"
 import { queryKey } from "src/constants/queryKey"
-import useScheme from "src/hooks/useScheme"
 
 /**
  *  Wait for mermaid to be defined in the dom

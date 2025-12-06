@@ -1,10 +1,10 @@
-import { CONFIG } from "site.config"
-import Tag from "src/components/Tag"
-import { TPost } from "src/types"
-import { formatDate } from "src/libs/utils"
+import styled from "@emotion/styled"
 import Image from "next/image"
 import React from "react"
-import styled from "@emotion/styled"
+import { CONFIG } from "site.config"
+import Tag from "src/components/Tag"
+import { formatDate } from "src/libs/utils"
+import { TPost } from "src/types"
 
 type Props = {
   data: TPost
@@ -25,7 +25,7 @@ const PostHeader: React.FC<Props> = ({ data }) => {
                     src={data.author[0].profile_photo || CONFIG.profile.image}
                     alt="profile_photo"
                     width={24}
-                    height={24}
+                    height={12}
                   />
                   <div className="">{data.author[0].name}</div>
                 </div>

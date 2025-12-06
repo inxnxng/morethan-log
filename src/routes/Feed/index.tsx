@@ -1,16 +1,16 @@
 import { useState } from "react"
 
-import SearchInput from "./SearchInput"
+import styled from "@emotion/styled"
+import ContactCard from "./ContactCard"
 import { FeedHeader } from "./FeedHeader"
 import Footer from "./Footer"
-import styled from "@emotion/styled"
-import TagList from "./TagList"
 import MobileProfileCard from "./MobileProfileCard"
-import ProfileCard from "./ProfileCard"
-import ServiceCard from "./ServiceCard"
-import ContactCard from "./ContactCard"
 import PostList from "./PostList"
 import PinnedPosts from "./PostList/PinnedPosts"
+import ProfileCard from "./ProfileCard"
+import SearchInput from "./SearchInput"
+import ServiceCard from "./ServiceCard"
+import TagList from "./TagList"
 
 const HEADER_HEIGHT = 73
 
@@ -22,13 +22,19 @@ const Feed: React.FC<Props> = () => {
   return (
     <StyledWrapper>
       <div
-        className="lt"
+        className="rt"
         css={{
           height: `calc(100vh - ${HEADER_HEIGHT}px)`,
         }}
       >
-        <TagList />
+        <ProfileCard />
+        <ServiceCard />
+        <ContactCard />
+        <div className="footer">
+          <Footer />
+        </div>
       </div>
+
       <div className="mid">
         <MobileProfileCard />
         <PinnedPosts q={q} />
@@ -42,18 +48,14 @@ const Feed: React.FC<Props> = () => {
           <Footer />
         </div>
       </div>
+
       <div
-        className="rt"
+        className="lt"
         css={{
           height: `calc(100vh - ${HEADER_HEIGHT}px)`,
         }}
       >
-        <ProfileCard />
-        <ServiceCard />
-        <ContactCard />
-        <div className="footer">
-          <Footer />
-        </div>
+        <TagList />
       </div>
     </StyledWrapper>
   )

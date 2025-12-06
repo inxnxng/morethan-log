@@ -1,6 +1,6 @@
-import { getTextContent, getDateValue } from "notion-utils"
 import { NotionAPI } from "notion-client"
 import { BlockMap, CollectionPropertySchemaMap } from "notion-types"
+import { getDateValue, getTextContent } from "notion-utils"
 import { customMapImageUrl } from "./customMapImageUrl"
 
 async function getPageProperties(
