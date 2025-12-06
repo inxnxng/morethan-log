@@ -33,7 +33,7 @@ Next.js static blog using Notion as a Content Management System (CMS). Supports 
 1. Star this repo.
 2. [Fork](https://github.com/morethanmin/morethan-log/fork) the repo to your Profile.
 3. Duplicate [this Notion template](https://morethanmin.notion.site/12c38b5f459d4eb9a759f92fba6cea36?v=2e7962408e3842b2a1a801bf3546edda), and Share to Web.
-4. Copy the Web Link and keep note of the Notion Page Id from the Link which will be in this format [username.notion.site/`NOTION_PAGE_ID`?v=`VERSION_ID`]. 
+4. Copy the Web Link and keep note of the Notion Page Id from the Link which will be in this format [username.notion.site/`NOTION_PAGE_ID`?v=`VERSION_ID`].
 5. Clone your forked repo and then customize `site.config.js` based on your preference.
 6. Deploy on Vercel, with the following environment variables.
 
@@ -47,7 +47,7 @@ Next.js static blog using Notion as a Content Management System (CMS). Supports 
 
 <details>
    <summary> Click to see guide </summary>
-   
+
    0. Prepare Notion, Vercel account.
 
    1. ⭐ `Star` and `Fork` this repo.
@@ -62,7 +62,7 @@ Next.js static blog using Notion as a Content Management System (CMS). Supports 
 
    4. Click `Share` and `Publish` in right top, and check web link. (Copy web link)
    <img src='https://github.com/jhk0530/morethan-log/assets/6457691/886fe4a2-79ca-4dbc-b1e1-93984e7e3f44' width = '500'>
-   
+
    5. `Modify` **site.config.js** file in **your** forked repo.
    > 💡 NOTE. I changed **2 RED PART**
    <img src='https://github.com/jhk0530/morethan-log/assets/6457691/3d9c0da5-92bc-4372-8752-7bfc810b4986' width = '500'>
@@ -83,7 +83,7 @@ Next.js static blog using Notion as a Content Management System (CMS). Supports 
    <img src='https://github.com/jhk0530/morethan-log/assets/6457691/a7d72caa-4354-4f81-9577-c773faeed7c6' width = '500'>
 
    🥳 Congratulations. Now check out your blog
-   
+
    <img src='https://github.com/jhk0530/morethan-log/assets/6457691/3876a273-a270-47ef-a2ad-663519d9e537' width = '500'>
 
 </details>
@@ -93,15 +93,15 @@ Next.js static blog using Notion as a Content Management System (CMS). Supports 
 <details>
    <summary> Click to see FAQ </summary>
    Q1: If you finish making avatar.svg, How to make favicon.ico and apple-touch-icon.png?
-   
+
    A1: check out https://www.favicon-generator.org/
-   
-   Q2: Is it necessary to set up a sitemap file?   
+
+   Q2: Is it necessary to set up a sitemap file?
    A2: The system will dynamically create a sitemap.xml, so there is no need for manual setup.
 
-   Q3: Why don’t Notion posts update automatically?   
+   Q3: Why don’t Notion posts update automatically?
    A3: Please set the revalidateTime in site.config.js and observe how long it takes to update.
-   
+
    Q4: What should be entered for NEXT_PUBLIC_GOOGLE_MEASUREMENT_ID and NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION in site.config.js?
    A4: You can check https://github.com/morethanmin/morethan-log/issues/203. Please note that updates may take some time to take effect after setting.
 
