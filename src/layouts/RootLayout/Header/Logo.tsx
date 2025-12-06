@@ -1,10 +1,10 @@
+import styled from "@emotion/styled"
 import Link from "next/link"
 import { CONFIG } from "site.config"
-import styled from "@emotion/styled"
 
 const Logo = () => {
   return (
-    <StyledWrapper href="/" aria-label={CONFIG.blog.title}>
+    <StyledWrapper href="/" aria-label={CONFIG.blog.title} >
       {CONFIG.blog.title}
     </StyledWrapper>
   )
@@ -12,4 +12,7 @@ const Logo = () => {
 
 export default Logo
 
-const StyledWrapper = styled(Link)``
+const StyledWrapper = styled(Link)`
+  font-size: 1.25rem;
+  font-weight: bold;
+`

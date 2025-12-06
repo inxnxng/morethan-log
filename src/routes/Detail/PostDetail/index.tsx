@@ -1,14 +1,14 @@
 import styled from "@emotion/styled"
 import React from "react"
 import Category from "src/components/Category"
-import { PostDetail } from "src/types"
+import { PostDetail as PostDetailType } from "src/types"
 import NotionRenderer from "../components/NotionRenderer"
 import CommentBox from "./CommentBox"
 import Footer from "./PostFooter"
 import PostHeader from "./PostHeader"
 
 type Props = {
-  data: PostDetail
+  data: PostDetailType
 }
 
 const PostDetail: React.FC<Props> = ({ data }) => {
