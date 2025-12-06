@@ -1,12 +1,13 @@
 import styled from "@emotion/styled"
 import React from "react"
-import usePostQuery from "src/hooks/usePostQuery"
+import { PostDetail } from "src/types"
 import NotionRenderer from "../components/NotionRenderer"
-type Props = {}
 
-const PageDetail: React.FC<Props> = () => {
-  const data = usePostQuery()
+type Props = {
+  data: PostDetail
+}
 
+const PageDetail: React.FC<Props> = ({ data }) => {
   if (!data) return null
   return (
     <StyledWrapper>

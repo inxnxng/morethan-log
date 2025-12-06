@@ -7,41 +7,26 @@ import { queryKey } from "src/constants/queryKey"
 import usePostQuery from "src/hooks/usePostQuery"
 import { queryClient } from "src/libs/react-query"
 import { filterPosts } from "src/libs/utils/notion"
-import { FilterPostsOptions } from "src/libs/utils/notion/filterPosts"
 import Detail from "src/routes/Detail"
 import CustomError from "src/routes/Error"
-import { NextPageWithLayout } from "../types"
+import { NextPageWithLayout } from "src/types"
 
-const filter: FilterPostsOptions = {
-  acceptStatus: ["Public", "PublicOnDetail"],
-  acceptType: ["Paper", "Post", "Page"],
-}
-
-export const getStaticPaths = async () => {
-  const posts = await getPosts()
-  const filteredPost = filterPosts(posts, filter)
-
-  return {
-    paths: filteredPost.map((row) => `/${row.slug}`),
-    fallback: true,
-  }
-}
-
-export const getStaticProps: GetStaticProps = async (context) => {
-  const slug = context.params?.slug
-
+export const getStaticProps: GetStaticProps = async () => {
   const posts = await getPosts()
   const feedPosts = filterPosts(posts)
   await queryClient.prefetchQuery(queryKey.posts(), () => feedPosts)
 
-  const detailPosts = filterPosts(posts, filter)
-  const postDetail = detailPosts.find((t: any) => t.slug === slug)
-  const recordMap = await getRecordMap(postDetail?.id!)
+  const aboutPage = feedPosts.find(
+    (post) => post.id === CONFIG.notionConfig.aboutPageId
+  )
 
-  await queryClient.prefetchQuery(queryKey.post(`${slug}`), () => ({
-    ...postDetail,
-    recordMap,
-  }))
+  if (aboutPage) {
+    const recordMap = await getRecordMap(aboutPage.id)
+    await queryClient.prefetchQuery(queryKey.post(aboutPage.id), () => ({
+      ...aboutPage,
+      recordMap,
+    }))
+  }
 
   return {
     props: {
@@ -51,8 +36,8 @@ export const getStaticProps: GetStaticProps = async (context) => {
   }
 }
 
-const DetailPage: NextPageWithLayout = () => {
-  const post = usePostQuery()
+const AboutPage: NextPageWithLayout = () => {
+  const post = usePostQuery(CONFIG.notionConfig.aboutPageId)
 
   if (!post) return <CustomError />
 
@@ -69,7 +54,7 @@ const DetailPage: NextPageWithLayout = () => {
     image: image,
     description: post.summary || "",
     type: post.type[0],
-    url: `${CONFIG.link}/${post.slug}`,
+    url: `${CONFIG.link}/about`,
   }
 
   return (
@@ -80,8 +65,8 @@ const DetailPage: NextPageWithLayout = () => {
   )
 }
 
-DetailPage.getLayout = (page) => {
+AboutPage.getLayout = (page) => {
   return <>{page}</>
 }
 
-export default DetailPage
+export default AboutPage

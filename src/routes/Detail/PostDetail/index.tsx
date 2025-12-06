@@ -1,17 +1,17 @@
 import styled from "@emotion/styled"
 import React from "react"
 import Category from "src/components/Category"
-import usePostQuery from "src/hooks/usePostQuery"
+import { PostDetail } from "src/types"
 import NotionRenderer from "../components/NotionRenderer"
 import CommentBox from "./CommentBox"
 import Footer from "./PostFooter"
 import PostHeader from "./PostHeader"
 
-type Props = {}
+type Props = {
+  data: PostDetail
+}
 
-const PostDetail: React.FC<Props> = () => {
-  const data = usePostQuery()
-
+const PostDetail: React.FC<Props> = ({ data }) => {
   if (!data) return null
 
   const category = (data.category && data.category?.[0]) || undefined

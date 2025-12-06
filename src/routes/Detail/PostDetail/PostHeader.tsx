@@ -25,7 +25,7 @@ const PostHeader: React.FC<Props> = ({ data }) => {
                     src={data.author[0].profile_photo || CONFIG.profile.image}
                     alt="profile_photo"
                     width={24}
-                    height={12}
+                    height={24}
                   />
                   <div className="">{data.author[0].name}</div>
                 </div>
