@@ -3,7 +3,7 @@ const CONFIG = {
   profile: {
     name: "inxnxng",
     image: "/avatar.jpg",
-    role: "software developer",
+    role: "software engineer",
     bio: "step by step",
     email: "inkyung.huh.ink@gmail.com",
     github: "inxnxng",
@@ -69,7 +69,7 @@ const CONFIG = {
     },
   },
   isProd: process.env.VERCEL_ENV === "production", // distinguish between development and production environment (ref: https://vercel.com/docs/environment-variables#system-environment-variables)
-  revalidateTime: 21600 * 7, // revalidate time for [slug], index
+  revalidateTime: 7200 * 12, // revalidate time for [slug], index
 }
 
 module.exports = { CONFIG }
